@@ -1,0 +1,18 @@
+!!! 5
+%html
+  %head
+    = render "layouts/head", :stylesheet_partial => "layouts/stylesheets"
+  %body{ :class => "#{controller.controller_name} two-col" }
+    #container
+      .span-24
+        %header#header
+          = render "layouts/header"
+        #main{ :role => 'main' }
+          = render "layouts/flashes"
+          = yield
+        %footer#footer
+          = render "layouts/footer"
+    = render "layouts/javascripts"
+
+
+
