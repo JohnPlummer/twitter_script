@@ -1,4 +1,5 @@
 -if signed_in?
   %h2 Signed In
 -else
-  %h2 Sign in to Twitter
+  -form_tag('/sessions') do
+    =submit_tag 'Sign in to Twitter'
