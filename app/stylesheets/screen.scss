@@ -1,18 +1,21 @@
-// This import applies a global reset to any page that imports this stylesheet.
-@import "blueprint/reset";
+@import "blueprint/reset"; // This import applies a global reset to any page that imports this stylesheet.
+@import "partials/base"; // To configure blueprint, edit the partials/base.sass file.
+@import "blueprint"; // Import all the default blueprint modules so that we can access their mixins.
+@import "blueprint/scaffolding"; // Import the non-default scaffolding module.
+@import "compass/layout/sticky-footer";
+@import "compass/css3/box-shadow";
 
-// To configure blueprint, edit the partials/base.sass file.
-@import "partials/base";
 
-// Import all the default blueprint modules so that we can access their mixins.
-@import "blueprint";
+$footer-height: 50px;
+$header-height: auto;
+$bar-color: #1F1F1F;
 
-// Import the non-default scaffolding module.
-@import "blueprint/scaffolding";
 
+@include sticky-footer($footer-height, "#wrapper", "#push", "#footer-bar");
 // To generate css equivalent to the blueprint css but with your
 // configuration applied, uncomment:
 // @include blueprint
+
 
 // If you are doing a lot of stylesheet concatenation, it is suggested
 // that you scope your blueprint styles, so that you can better control
@@ -33,10 +36,20 @@ form.bp {
 
 // Page layout can be done using mixins applied to your semantic classes and IDs:
 body.two-col {
-  #container {
+  .container {
     @include container; }
   #header, #footer {
-    @include column($blueprint-grid-columns); }
+    color: white;
+    @include column($blueprint-grid-columns); 
+    h1 {
+      color: white; } }
+  #header-bar {
+    height: $header-height; }
+  #footer-bar {
+    height: $footer-height; }
+  #header-bar, #footer-bar {
+    background: $bar-color; 
+    @include single-box-shadow(rgba(0,0,0,0.5), 0, 0, 25px, 5px); }
   #sidebar {
     // One third of the grid columns, rounding down. With 24 cols, this is 8.
     $sidebar-columns: floor($blueprint-grid-columns / 3);
