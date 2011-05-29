@@ -6,6 +6,8 @@ gem 'haml'
 gem 'sass'
 gem 'compass'
 gem 'jquery-rails'
+gem 'oauth', '~> 0.4.4'
+gem 'twitter', '~> 1.4.1'
 
 group :development, :test do
   gem 'ruby-debug19'
