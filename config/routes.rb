@@ -1,4 +1,12 @@
 TwitterScript::Application.routes.draw do
+  get "session/new"
+
+  get "session/create"
+
+  get "session/destroy"
+
+  get "session/callback"
+
   get "home/index"
 
   root :to => "home#index"
