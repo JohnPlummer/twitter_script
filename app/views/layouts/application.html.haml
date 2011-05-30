@@ -5,21 +5,13 @@
   %body{ :class => "#{controller.controller_name} bp two-col" }
     #wrapper
       #header-bar
-        .container
-          .span-24
-            %header#header
-              = render "layouts/header"
-      .container
-        .span-24
-          #main{ :role => 'main' }
-            = render "layouts/flashes"
-            = yield
+        = render "layouts/header"
+      #main{ :role => 'main' }
+        = render "layouts/flashes"
+        = yield
       #push
     #footer-bar
-      .container
-        .span-24
-          %footer#footer
-            = render "layouts/footer"
+      = render "layouts/footer"
     = render "layouts/javascripts"
 
 

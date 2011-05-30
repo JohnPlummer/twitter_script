@@ -1,1 +1,11 @@
-%h1 Twitter Script
+.container
+  %header#header
+    #logo
+      %h1 Twitter Script
+    #login
+      -if signed_in?
+        -form_tag('sessions/destroy', :method => :delete) do
+          =submit_tag 'Sign out'
+      -else
+        -form_tag('/sessions') do
+          =submit_tag 'Sign in to Twitter'

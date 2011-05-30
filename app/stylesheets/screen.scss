@@ -39,8 +39,13 @@ body.two-col {
   .container {
     @include container; }
   #header, #footer {
+    @include container;
     color: white;
-    @include column($blueprint-grid-columns); 
+    #logo {
+      @include column(12); }
+    #login {
+      text-align: right;
+      @include column(12, true); }
     h1 {
       color: white; } }
   #header-bar {
@@ -50,6 +55,8 @@ body.two-col {
   #header-bar, #footer-bar {
     background: $bar-color; 
     @include single-box-shadow(rgba(0,0,0,0.5), 0, 0, 25px, 5px); }
+  #main {
+    @include container; }
   #sidebar {
     // One third of the grid columns, rounding down. With 24 cols, this is 8.
     $sidebar-columns: floor($blueprint-grid-columns / 3);

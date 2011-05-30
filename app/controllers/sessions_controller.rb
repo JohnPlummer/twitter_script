@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-    @result = "key = #{ENV['CONSUMER_KEY']}"
     @user = client.user if signed_in?
   end
 
