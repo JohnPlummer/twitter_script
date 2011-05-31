@@ -2,13 +2,15 @@
 %html
   %head
     = render "layouts/head", :stylesheet_partial => "layouts/stylesheets"
-  %body{ :class => "#{controller.controller_name} bp two-col" }
+  %body{ :class => "#{controller.controller_name} two-col bp" }
     #wrapper
       #header-bar
         = render "layouts/header"
       #main{ :role => 'main' }
-        = render "layouts/flashes"
-        = yield
+        = render "layouts/sidebar"
+        #content
+          = render "layouts/flashes"
+          = yield
       #push
     #footer-bar
       = render "layouts/footer"

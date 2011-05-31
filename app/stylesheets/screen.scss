@@ -4,7 +4,7 @@
 @import "blueprint/scaffolding"; // Import the non-default scaffolding module.
 @import "compass/layout/sticky-footer";
 @import "compass/css3/box-shadow";
-
+@import "compass/typography/lists/bullets";
 
 $footer-height: 50px;
 $header-height: auto;
@@ -40,6 +40,7 @@ body.two-col {
     @include container; }
   #header, #footer {
     @include container;
+    padding-top: 20px;
     color: white;
     #logo {
       @include column(12); }
@@ -60,7 +61,12 @@ body.two-col {
   #sidebar {
     // One third of the grid columns, rounding down. With 24 cols, this is 8.
     $sidebar-columns: floor($blueprint-grid-columns / 3);
-    @include column($sidebar-columns); }
+    @include column($sidebar-columns);
+    padding-top: 40px;
+    text-align: right;
+    .menu li {
+      font-size: 2em;
+      @include no-bullet; } }
   #content {
     // Two thirds of the grid columns, rounding up.
     // With 24 cols, this is 16.
