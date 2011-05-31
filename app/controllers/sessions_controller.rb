@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
     session['access_token'] = access_token.token
     session['access_secret'] = access_token.secret
     user = client.verify_credentials
-    sign_in(user)
+    sign_in(user,  access_token)
     redirect_back_or root_path
   end
 end

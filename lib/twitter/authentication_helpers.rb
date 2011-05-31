@@ -22,8 +22,13 @@ module Twitter
       render :template => "/sessions/new", :status => :unauthorized
     end
 
-    def sign_in(user)
-      session[:screen_name] = user.screen_name if user
+    def sign_in(user, access_token)
+      if user
+        account = Account.find_or_create_by_name(user.screen_name)
+        raise Errors::AccountNotAuthorized.new unless account.authorized?
+        account.sign_in(access_token.token, access_token.secret)
+        session[:screen_name] = user.screen_name 
+      end
     end
 
     def redirect_back_or(default)

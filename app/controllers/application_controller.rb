@@ -2,8 +2,10 @@ require 'twitter/authentication_helpers'
 
 class ApplicationController < ActionController::Base
   include Twitter::AuthenticationHelpers
+  include Errors
   protect_from_forgery
   rescue_from Twitter::Unauthorized, :with => :force_sign_in
+  rescue_from Errors::AccountNotAuthorized, :with => :account_not_authorized
 
   private
 
@@ -29,6 +31,12 @@ class ApplicationController < ActionController::Base
   def force_sign_in(exception)
     reset_session
     flash[:error] = "It seems your credentials are not good anymore. Please sign in again."
+    redirect_to new_session_path
+  end
+
+  def account_not_authorized(exception)
+    reset_session
+    flash[:error] = "Sorry, your account needs to be authorized."
     redirect_to new_session_path
   end
 end

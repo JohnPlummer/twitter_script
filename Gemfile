@@ -23,5 +23,6 @@ group :development, :test do
   gem 'haml-rails'
   gem 'rake', '~> 0.8.7' #Until the Rake 0.9 Rails Bug is fixed
   gem 'heroku'
+  gem 'wirble'
 end
 
