@@ -9,16 +9,9 @@ gem 'jquery-rails'
 gem 'oauth', '~> 0.4.4'
 gem 'twitter', '~> 1.4.1'
 
-group :development, :test do
+group :development do
   gem 'ruby-debug19'
   gem 'ruby-debug-ide'
-  gem 'rspec-rails'
-  gem 'cucumber-rails'
-  gem 'shoulda'
-  gem 'capybara'
-  gem 'launchy'
-  gem 'spork'
-  gem 'factory_girl_rails'
   gem 'annotate-models'
   gem 'haml-rails'
   gem 'rake', '~> 0.8.7' #Until the Rake 0.9 Rails Bug is fixed
@@ -26,3 +19,17 @@ group :development, :test do
   gem 'wirble'
 end
 
+group :test do
+  gem 'rspec-rails'
+  gem 'cucumber-rails'
+  gem 'shoulda'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'spork'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+end
+group :development, :test do
+  gem 'vcr'
+  gem 'fakeweb'
+end

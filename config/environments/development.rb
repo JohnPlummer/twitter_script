@@ -23,5 +23,17 @@ TwitterScript::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
-end
+  VCR.config do |c|
+    c.cassette_library_dir = File.expand_path('tmp/vcr_cassettes', Rails.root)
+    c.stub_with :fakeweb
+    c.allow_http_connections_when_no_cassette = false
+    c.default_cassette_options = { :record => :all }
+  end
 
+  VCR.insert_cassette ENV.fetch('VCR_CASSETTE') {'development'}
+
+  at_exit {
+    VCR.eject_cassette
+  }
+
+end

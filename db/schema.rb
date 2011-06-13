@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20110531091332) do
     t.string   "name"
     t.string   "access_token"
     t.string   "access_secret"
-    t.boolean  "authorized"
+    t.boolean  "verified"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

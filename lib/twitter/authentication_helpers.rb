@@ -25,7 +25,7 @@ module Twitter
     def sign_in(user, access_token)
       if user
         account = Account.find_or_create_by_name(user.screen_name)
-        raise Errors::AccountNotAuthorized.new unless account.authorized?
+        raise Errors::AccountNotVerified.new unless account.verified?
         account.sign_in(access_token.token, access_token.secret)
         session[:screen_name] = user.screen_name 
       end

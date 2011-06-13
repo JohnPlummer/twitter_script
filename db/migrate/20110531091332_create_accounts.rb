@@ -4,7 +4,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.string  :name
       t.string  :access_token
       t.string  :access_secret
-      t.boolean :authorized
+      t.boolean :verified
 
       t.timestamps
     end

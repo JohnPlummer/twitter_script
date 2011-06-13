@@ -32,4 +32,18 @@ TwitterScript::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # VCR.config do |c|
+  #   c.cassette_library_dir = File.expand_path('features/fixtures/vcr_cassettes', Rails.root)
+  #   c.stub_with :fakeweb
+  #   c.allow_http_connections_when_no_cassette = false
+  #   c.default_cassette_options = { :record => :none }
+  # end
+
+  # VCR.cucumber_tags do |t|
+  #   t.tag  '@twitter', :record => :new_episodes
+  # end
+
+  ENV['CONSUMER_KEY']       = 'consumer_key'
+  ENV['CONSUMER_SECRET']    = 'consumer_secret'
 end

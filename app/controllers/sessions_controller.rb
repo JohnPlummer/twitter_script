@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     redirect_to new_session_path
+    flash_message :notice, 'Signed out'
   end
 
   def callback
@@ -24,5 +25,7 @@ class SessionsController < ApplicationController
     user = client.verify_credentials
     sign_in(user,  access_token)
     redirect_back_or root_path
+    flash_message :notice, 'Signed in'
+    flash_message :notice, "access token: #{session['access_token']} access secret: #{session['access_secret']}" if Rails.env.development?
   end
 end
