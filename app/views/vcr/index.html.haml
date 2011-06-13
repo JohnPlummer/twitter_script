@@ -1,0 +1,9 @@
+%h1 VCR Cassettes
+%p Current cassette: #{VCR.current_cassette.name}
+
+=button_to 'Eject Cassette', vcr_eject_path
+
+-form_for :cassette, :url => vcr_insert_path do |f|
+  =f.label :name, 'Cassette name:'
+  =f.text_field :name
+  =f.submit 'Insert Cassette'

@@ -4,8 +4,10 @@
       %h1 Twitter Script
     #login
       -if signed_in?
-        -form_tag('sessions/destroy', :method => :delete) do
-          =submit_tag 'Sign out'
+        =link_to 'Sign out', signout_path
+        -# =form_tag('sessions/destroy', :method => :delete) do
+        -#   =submit_tag 'Sign out'
       -else
-        -form_tag('/sessions') do
-          =submit_tag 'Sign in to Twitter'
+        =link_to 'Sign in with Twitter', sessions_path, :method => :post
+        -# =form_tag('/sessions') do
+        -#   =submit_tag 'Sign in with Twitter'
