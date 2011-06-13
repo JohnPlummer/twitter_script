@@ -8,13 +8,8 @@ require 'rubygems'
 require 'spork'
 
 Spork.prefork do
-  require 'cucumber/rails'
-  # require 'fakeweb'
-
-  # FakeWeb.allow_net_connect = false
-  # FakeWeb.register_uri(:post, 'http://api.twitter.com/oauth/access_token', :body => 'oauth_token=fake&oauth_token_secret=fake')
-  # FakeWeb.register_uri(:post, 'http://twitter.com/oauth/access_token', :body => 'oauth_token=fake&oauth_token_secret=fake')
-  # FakeWeb.register_uri(:get, 'https://api.twitter.com/1/account/verify_credentials.json', :response => File.join(RAILS_ROOT, 'features', 'fixtures', 'verify_credentials.json'))
+  
+ require 'cucumber/rails'
 
   # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
   # order to ease the transition to Capybara we set the default here. If you'd

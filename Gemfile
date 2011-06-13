@@ -20,7 +20,6 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'shoulda'
   gem 'capybara'
@@ -30,6 +29,7 @@ group :test do
   gem 'database_cleaner'
 end
 group :development, :test do
+  gem 'rspec-rails'
   gem 'vcr'
   gem 'fakeweb'
 end
