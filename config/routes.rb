@@ -1,4 +1,6 @@
 TwitterScript::Application.routes.draw do
+  get "reciprocates/index"
+
   get 'sessions/callback', :to => 'sessions#callback', :as => 'callback'
   get 'oauth/authorize', :to => 'sessions#callback' # this is being requested in cucumber rather than sessions/callback
   match '/signout' => 'sessions#destroy', :as => 'signout'

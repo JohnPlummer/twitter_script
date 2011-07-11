@@ -4,12 +4,23 @@
 @import "blueprint/scaffolding"; // Import the non-default scaffolding module.
 @import "compass/layout/sticky-footer";
 @import "compass/css3/box-shadow";
+@import "compass/layout/stretching";
+
 
 
 $footer-height: 50px;
 $header-height: auto;
 $bar-color: #1F1F1F;
+$text-color: #433F40;
+$light-text-color: #999;
+$hilite-color: #BED730;
+$background-color: white;
 
+
+#header-bar, #footer-bar {
+  background: $bar-color; 
+  @include single-box-shadow(rgba(0,0,0,0.5), 0, 0, 25px, 5px);
+}
 
 @include sticky-footer($footer-height, "#wrapper", "#push", "#footer-bar");
 // To generate css equivalent to the blueprint css but with your
@@ -32,38 +43,53 @@ body.bp {
 form.bp {
   @include blueprint-form;
   // You'll probably want to remove the scaffolding once you start styling your site.
-  @include blueprint-scaffolding; }
+  @include blueprint-scaffolding;
+}
 
 // Page layout can be done using mixins applied to your semantic classes and IDs:
 body.two-col {
+  color: $text-color;
   .container {
-    @include container; }
+    @include container;
+  }
   #header, #footer {
     @include container;
     color: white;
     #logo {
-      @include column(12); }
+      @include column(12);
+    }
     #login {
       text-align: right;
-      @include column(12, true); }
+      @include column(12, true);
+    }
     h1 {
-      color: white; } }
+      color: white;
+    }
+  }
   #header-bar {
-    height: $header-height; }
+    @extend .bar;
+    height: $header-height;
+  }
   #footer-bar {
-    height: $footer-height; }
-  #header-bar, #footer-bar {
-    background: $bar-color; 
-    @include single-box-shadow(rgba(0,0,0,0.5), 0, 0, 25px, 5px); }
+    height: $footer-height;
+  }
   #main {
-    @include container; }
+    @include container;
+  }
   #sidebar {
     // One third of the grid columns, rounding down. With 24 cols, this is 8.
     $sidebar-columns: floor($blueprint-grid-columns / 3);
-    @include column($sidebar-columns); }
+    @include column($sidebar-columns);
+    ul {
+      list-style: none;
+      font-size: medium;
+    }
+  }
   #content {
     // Two thirds of the grid columns, rounding up.
     // With 24 cols, this is 16.
     $content-columns: ceil(2 * $blueprint-grid-columns / 3);
     // true means it's the last column in the row
-    @include column($content-columns, true); } }
+    @include column($content-columns, true);
+  }
+}
