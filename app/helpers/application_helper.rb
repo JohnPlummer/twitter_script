@@ -13,7 +13,7 @@ module ApplicationHelper
   def main_nav
     links = []
     links << menu_link_to('Home', root_path, :title => 'Home')
-    links << menu_link_to('Reciprocates', reciprocates_index_path, :title => 'Reciprocates')
+    links << menu_link_to('Reciprocates', "#", :title => 'Reciprocates')
 
     menu(links)
   end
